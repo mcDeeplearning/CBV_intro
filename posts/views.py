@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import View,TemplateView
+from django.views.generic import View,TemplateView,ListView
 from django.http import HttpResponse
+
+from .models import School
 
 # Create your views here.
 def index(request):
@@ -17,4 +19,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['greeting'] = "안녕하세요!!"
         return context
-        
+
+class SchoolListView(ListView):
+    template_name = 'posts/school_list.html'
+    model = School
