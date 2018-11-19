@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View,TemplateView,ListView
+from django.views.generic import View,TemplateView,ListView,DetailView
 from django.http import HttpResponse
 
 from .models import School
@@ -21,5 +21,12 @@ class IndexView(TemplateView):
         return context
 
 class SchoolListView(ListView):
-    template_name = 'posts/school_list.html'
     model = School
+    # schools = School.objects.all()
+    template_name = 'posts/school_list.html'
+    # return render(request,'posts/school_list.html',{'schools':schools})
+    
+class SchoolDetailView(DetailView):
+    model = School
+    template_name = 'posts/school_detail.html'
+    

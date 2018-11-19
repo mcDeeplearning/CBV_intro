@@ -8,4 +8,5 @@ urlpatterns = [
     path('cbv/',views.CBView.as_view()),
     path('cbv_index/',views.IndexView.as_view()),
     path('list/',views.SchoolListView.as_view()),
+    path('<int:pk>/',views.SchoolDetailView.as_view()),
 ]
